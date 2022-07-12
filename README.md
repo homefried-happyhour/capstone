@@ -93,3 +93,9 @@ Go to cocktail migration and add the following to the ingredients and directions
 ```
 ### Adding seeds
 - please refer to seeds.rb
+
+### Jest testing
+```bash
+yarn add --dev jest
+yarn add -D enzyme react-test-renderer enzyme-adapter-react-16
+```
