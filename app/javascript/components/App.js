@@ -20,11 +20,11 @@ export default class App extends Component {
           <div className='app-container'>
             <Routes>
               <Route exact path="/" element={<Home/>} />
-              <Route path="/lastcallindex" element={<LastCallIndex/>} />
+              {/* <Route path="/lastcallindex" element={<LastCallIndex/>} />
               <Route path="/lastcallshow/:id" element={<LastCallShow/>} />
               <Route path="/lastcallnew" element={<LastCallNew/>} />
               <Route path="/lastcalledit/:id" element={<LastCallEdit/>} />
-              <Route element={<NotFound/>} />
+              <Route element={<NotFound/>} /> */}
             </Routes>
           </div>
           <Footer/>
