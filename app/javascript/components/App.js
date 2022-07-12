@@ -5,12 +5,18 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 export default class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      cocktails: []
+    }
+  }
   render() {
     return (
       <>
       <div>Last Call</div>
         <Router>
-          <Header />
+          <Header/>
           <div className='app-container'>
             <Routes>
               <Route exact path="/" element={<Home/>} />
