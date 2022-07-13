@@ -97,5 +97,15 @@ Go to cocktail migration and add the following to the ingredients and directions
 ### Jest testing
 ```bash
 yarn add --dev jest
+yarn add jest-enzyme
+yarn add enzyme
 yarn add -D enzyme react-test-renderer enzyme-adapter-react-16
+```
+
+### New Driver Starting Commands
+```bash
+yarn
+bundle
+yarn add reactstrap
+rails db:setup
 ```
