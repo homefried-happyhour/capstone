@@ -6,16 +6,8 @@ RSpec.describe CocktailsController, type: :routing do
       expect(get: "/cocktails").to route_to("cocktails#index")
     end
 
-    it "routes to #new" do
-      expect(get: "/cocktails/new").to route_to("cocktails#new")
-    end
-
     it "routes to #show" do
       expect(get: "/cocktails/1").to route_to("cocktails#show", id: "1")
-    end
-
-    it "routes to #edit" do
-      expect(get: "/cocktails/1/edit").to route_to("cocktails#edit", id: "1")
     end
 
 
