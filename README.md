@@ -109,3 +109,16 @@ bundle
 yarn add reactstrap
 rails db:setup
 ```
+
+## Navigation
+- Added routes to **app/javascript/components/App.js** for:
+  - /lastcallindex
+  - /lastcallprotectedindex
+  - /lastcallshow
+  - /lastcallnew
+  - /lastcalledit
+  - /about
+  - *
+
+- Header/Footer renders correctly
+- Header/Footer have tests for rendering
