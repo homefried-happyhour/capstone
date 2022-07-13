@@ -4,6 +4,7 @@ class CocktailsController < ApplicationController
   # GET /cocktails or /cocktails.json
   def index
     @cocktails = Cocktail.all
+    render json: @cocktails
   end
 
   # GET /cocktails/1 or /cocktails/1.json
@@ -13,6 +14,7 @@ class CocktailsController < ApplicationController
   # GET /cocktails/new
   def new
     @cocktail = Cocktail.new
+    render json: @cocktail
   end
 
   # GET /cocktails/1/edit
