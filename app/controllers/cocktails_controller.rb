@@ -4,10 +4,12 @@ class CocktailsController < ApplicationController
   # GET /cocktails or /cocktails.json
   def index
     @cocktails = Cocktail.all
+    render json: @cocktails
   end
 
   # GET /cocktails/1 or /cocktails/1.json
   def show
+    render json: @cocktail
   end
 
   # GET /cocktails/new
@@ -65,6 +67,6 @@ class CocktailsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cocktail_params
-      params.require(:cocktail).permit(:image, :ingredients, :directions)
+      params.require(:cocktail).permit(:name, :image, :ingredients, :directions, :user_id)
     end
 end

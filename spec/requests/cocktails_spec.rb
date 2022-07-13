@@ -18,13 +18,26 @@ RSpec.describe "/cocktails", type: :request do
   # Cocktail. As you add validations to Cocktail, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      image:
+      "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mimosa-1652105768.jpg?crop=1.00xw:0.668xh;0,0.118xh&resize=980:*",
+     ingredients: ["sparkling wine", "orange juice"],
+     directions: ["Combine chilled sparkling wine and orange juice in a champaign flute."],
+     name: "Mimosa",
+     user_id:1
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      image: nil,
+     ingredients: nil,
+     directions: nil,
+     name: nil,
+     user_id: nil
+    }
   }
-
+  User.create(email: 'adminS@homefry.com',password:'12345678', password_confirmation:'12345678')
   describe "GET /index" do
     it "renders a successful response" do
       Cocktail.create! valid_attributes

@@ -124,3 +124,11 @@ rails db:setup
 
 - Header/Footer renders correctly
 - Header/Footer have tests for rendering
+
+### Unprotected Index
+- First we need to make a fetch request on app.js to update state from the database
+- Then we need to pass down the data as props to the unprotected index page.
+
+```bash
+rails g scaffold Cocktail name:string image:string ingredients:text directions:text user:references --api
+```

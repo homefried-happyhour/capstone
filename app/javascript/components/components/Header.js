@@ -27,6 +27,11 @@ export default class Header extends Component {
           </NavLink>
         }
         {logged_in &&
+          <NavLink to={'/lastcallnew'}>
+            <Button>New Cocktail</Button>
+          </NavLink>
+        }
+        {logged_in &&
           <NavItem >
             <Button href={sign_out_route}>Sign Out</Button>
           </NavItem>

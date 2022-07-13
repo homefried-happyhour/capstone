@@ -18,7 +18,20 @@ export default class App extends Component {
       cocktails: []
     }
   }
+
+  readCocktails = () => {
+    fetch("/cocktails")
+    .then(response => response.json())
+    .then(payload => this.setState({cocktails: payload}))
+    .catch(errors => console.log(errors))
+  }
+  
+  componentDidMount() {
+    this.readCocktails()
+  }
   render() {
+    let { cocktails } = this.state
+    console.log("cocktails: ", cocktails)
     return (
       <>
         <div>Last Call</div>
@@ -27,7 +40,7 @@ export default class App extends Component {
           <div className='app-container'>
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route path="/lastcallindex" element={<LastCallIndex />} />
+              <Route path="/lastcallindex" element={<LastCallIndex cocktails={this.state.cocktails}/>} />
               <Route path="/lastcallprotectedindex" element={<LastCallProtectedIndex />} />
               <Route path="/lastcallshow" element={<LastCallShow />} />
               <Route path="/lastcallnew" element={<LastCallNew />} />
