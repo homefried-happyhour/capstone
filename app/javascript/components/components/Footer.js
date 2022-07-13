@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import { Nav, NavItem } from 'reactstrap'
+import { Nav, Button } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
 
 export default class Footer extends Component {
   render() {
     return (
       <>
       <Nav>
-        <NavItem>
-          <a href={"/about"} className="nav-link">About Us</a>
-        </NavItem>
+        <NavLink to={"/about"} >
+          <Button>About Us</Button>
+        </NavLink>
       </Nav>
     </>
     )

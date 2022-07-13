@@ -14,9 +14,12 @@ import Header from './Header'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe("When Header renders", () => {
+    const props = {
+        logged_in:true
+    }
     it("displays a heading", () => {
-        const header = shallow(<Header />)
-        const heading = header.find("a")
+        const header = shallow(<Header {...props} />)
+        const heading = header.find("Button")
         console.log("HEADER: ", heading.debug());
         expect(heading.length).toEqual(4)
     })

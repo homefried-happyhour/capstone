@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Nav, NavItem } from 'reactstrap'
+import { Nav, NavItem, Button } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
 
 export default class Header extends Component {
   render() {
@@ -14,30 +15,30 @@ export default class Header extends Component {
     console.log("current_user:", current_user)
     return (
       <Nav>
-        <NavItem>
-          <a href={"/"} className="nav-link">Home</a>
-        </NavItem>
-        <NavItem>
-          <a href={"/lastcallindex"} className="nav-link">All Cocktails</a>
-        </NavItem>
+        <NavLink to={"/"}>
+          <Button>Home</Button>
+        </NavLink>
+        <NavLink to={"/lastcallindex"}>
+          <Button >All Cocktails</Button>
+        </NavLink>
         {logged_in &&
-          <NavItem>
-            <a href={'/lastcallprotectedindex'} className="nav-link">My Cocktails</a>
-          </NavItem>
+          <NavLink to={'/lastcallprotectedindex'}>
+            <Button>My Cocktails</Button>
+          </NavLink>
         }
         {logged_in &&
-          <NavItem>
-            <a href={sign_out_route} className="nav-link">Sign Out</a>
+          <NavItem >
+            <Button href={sign_out_route}>Sign Out</Button>
           </NavItem>
         }
         {!logged_in &&
-          <NavItem>
-            <a href={sign_in_route} className="nav-link">Sign In</a>
+          <NavItem >
+            <Button href={sign_in_route}>Sign In</Button>
           </NavItem>
         }
         {!logged_in &&
-          <NavItem>
-            <a href={new_user_route} className="nav-link">Sign Up</a>
+          <NavItem >
+            <Button href={new_user_route}>Sign Up</Button>
           </NavItem>
         }
       </Nav>
