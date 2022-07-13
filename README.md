@@ -97,5 +97,30 @@ Go to cocktail migration and add the following to the ingredients and directions
 ### Jest testing
 ```bash
 yarn add --dev jest
+yarn add jest-enzyme
+yarn add enzyme
 yarn add -D enzyme react-test-renderer enzyme-adapter-react-16
 ```
+
+### New Driver Starting Commands
+```bash
+yarn
+bundle
+yarn add reactstrap
+rails db:setup
+```
+
+## Navigation
+- Added routes to **app/javascript/components/App.js** for:
+  - /lastcallindex
+  - /lastcallprotectedindex
+  - /lastcallshow
+  - /lastcallnew
+  - /lastcalledit
+  - /about
+  - *
+- NavItem from reactstrap should be used to remount components and NavLink from react-router-dom for components that do not need to be remounted.
+- Header navigation to devise views require href. Using to with react-router-dom NavLink does not work until a manual refresh
+
+- Header/Footer renders correctly
+- Header/Footer have tests for rendering
