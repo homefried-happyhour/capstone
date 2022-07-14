@@ -1,42 +1,62 @@
-import React, { Component } from 'react'
-import {
-    Card,
-    CardImg,
-    CardBody,
-    CardTitle,
-    CardSubtitle,
-    CardText,
-    Button
-  } from 'reactstrap'
-  import { NavLink } from 'react-router-dom'
+import React from 'react'
+import { Card, CardBody, CardTitle, CardImg,CardText, CardSubtitle, Button } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+
+export default function LastCallShow(props) {
+  let { logged_in } = props
+  let { id } = useParams()
   
-export default class LastCallShow extends Component {
-    render() {
-        return (
-            <>
-            <div className="page-body">
-          
-            <Card body className="card-show">
-              <CardImg top width="100%" src={cat.image} />
-              <CardBody>
-                <CardTitle>Hi, my name is {cat.name}</CardTitle>
-                <CardSubtitle>{cat.age}</CardSubtitle>
-                <CardText>{cat.enjoys}</CardText>
-                <NavLink to={`/catedit/${cat.id}`}>
-                  <Button>Edit Cat Profile</Button>
+  let { cocktails } = props
+  let cocktail = cocktails.find(cocktailObj => cocktailObj.id == id)
+  
+
+  return (
+    <>                   
+    {cocktail && 
+      <Card>
+          <CardImg top style={{ width: '10rem' }} src={cocktail.image} alt="Card image cap" />
+          <CardBody>
+              <CardTitle>{cocktail.name}</CardTitle>
+              <CardSubtitle>Ingredients</CardSubtitle>
+              <CardText>
+                
+                  {cocktail.ingredients.map(ingredient => {
+                    return(
+                       <li> {ingredient} </li>
+                    )
+                  })
+                  }
+                
+              </CardText>
+              <CardSubtitle>Directions</CardSubtitle>
+              <CardText>
+                
+                  {cocktail.directions.map(direction => {
+                    return(
+                       <li> {direction} </li>
+                    )
+                  })
+                  }
+                
+              </CardText>
+              <NavLink to={`/`}>
+                  <Button> Home </Button>
+              </NavLink>
+              {logged_in &&
+              <>
+                <NavLink to={`/lastcalledit/${id}`}>
+                    <Button id="edit"> Edit </Button>
                 </NavLink>
-                <br />
-                <br />
-                <NavLink to="/catindex">
-                  <Button onClick={() => this.props.deleteCat(cat.id)}>
-                    Delete Cat Profile
-                  </Button>
-                </NavLink>
-              </CardBody>
-            </Card>
-          
-        </div>
-      </>
-    )
-  }
+                
+                    <Button id="delete"> Delete </Button>
+                
+              </>
+              }
+          </CardBody>
+      </Card>
+      }
+
+    </>
+  )
 }
