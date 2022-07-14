@@ -129,3 +129,6 @@ rails db:setup
 - check login status by destructuring logged_in out of props. We can use this to conditionally render the edit and delete buttons
 - This component is functional because react-router-dom6 does not support params match in the route. Had to utilize useParams() hook to get the slug
 - Testing was interesting because the id had to be set as undefined to get page to shallow render. All other data could be mocked to check for functionality of conditional rendering.
+
+### Protected Index
+- Rather than creating a separate page, we used OffCanvas to filter the list we got from the original fetch request on the app page to render only the items that match the current user id.

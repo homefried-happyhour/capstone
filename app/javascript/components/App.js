@@ -25,7 +25,18 @@ export default class App extends Component {
     .then(payload => this.setState({cocktails: payload}))
     .catch(errors => console.log(errors))
   }
-  
+  createCocktail = (newCocktail) => {
+    fetch("/cocktails", {
+      body: JSON.stringify(newCocktail),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "POST"
+    })
+    .then(response => response.json())
+    .then(payload => this.readCocktails())
+    .catch(errors => console.log("Cocktail read errors:", errors))
+  }
   componentDidMount() {
     this.readCocktails()
   }
@@ -34,16 +45,16 @@ export default class App extends Component {
     console.log("cocktails: ", cocktails)
     return (
       <>
-        <div>Last Call</div>
+        
         <Router>
-          <Header {...this.props} />
+          <Header {...this.props} cocktails={cocktails}/>
           <div className='app-container'>
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route path="/lastcallindex" element={<LastCallIndex cocktails={this.state.cocktails}/>} />
+              <Route path="/lastcallindex" element={<LastCallIndex cocktails={cocktails}/>} />
               <Route path="/lastcallprotectedindex" element={<LastCallProtectedIndex />} />
               <Route path="/lastcallshow/:id" element={<LastCallShow {...this.props} cocktails={cocktails}/>} />
-              <Route path="/lastcallnew" element={<LastCallNew />} />
+              <Route path="/lastcallnew" element={<LastCallNew {...this.props} createCocktail={this.createCocktail}/>} />
               <Route path="/lastcalledit" element={<LastCallEdit />} />
               <Route path="/about" element={<About />} />
               <Route path="*" element={<NotFound />} />
