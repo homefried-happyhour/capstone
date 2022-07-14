@@ -14,7 +14,7 @@ export default class LastCallIndex extends Component {
                         <CardImg top style={{ width: '10rem' }} src={value.image} alt="Card image cap" />
                         <CardBody>
                             <CardTitle>Name: {value.name}</CardTitle>
-                            <NavLink to={"/lastcallshow"}>
+                            <NavLink to={`/lastcallshow/${value.id}`}>
                                 <Button> More Info </Button>
                             </NavLink>
                         </CardBody>

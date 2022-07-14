@@ -125,10 +125,7 @@ rails db:setup
 - Header/Footer renders correctly
 - Header/Footer have tests for rendering
 
-### Unprotected Index
-- First we need to make a fetch request on app.js to update state from the database
-- Then we need to pass down the data as props to the unprotected index page.
-
-```bash
-rails g scaffold Cocktail name:string image:string ingredients:text directions:text user:references --api
-```
+### Show/Conditional Rendering
+- check login status by destructuring logged_in out of props. We can use this to conditionally render the edit and delete buttons
+- This component is functional because react-router-dom6 does not support params match in the route. Had to utilize useParams() hook to get the slug
+- Testing was interesting because the id had to be set as undefined to get page to shallow render. All other data could be mocked to check for functionality of conditional rendering.

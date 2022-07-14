@@ -42,7 +42,7 @@ export default class App extends Component {
               <Route exact path="/" element={<Home />} />
               <Route path="/lastcallindex" element={<LastCallIndex cocktails={this.state.cocktails}/>} />
               <Route path="/lastcallprotectedindex" element={<LastCallProtectedIndex />} />
-              <Route path="/lastcallshow" element={<LastCallShow />} />
+              <Route path="/lastcallshow/:id" element={<LastCallShow {...this.props} cocktails={cocktails}/>} />
               <Route path="/lastcallnew" element={<LastCallNew />} />
               <Route path="/lastcalledit" element={<LastCallEdit />} />
               <Route path="/about" element={<About />} />

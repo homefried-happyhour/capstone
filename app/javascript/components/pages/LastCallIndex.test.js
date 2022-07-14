@@ -1,5 +1,3 @@
-
-
 // Imports React into our test file.
 import React from 'react'
 // Imports Enzyme testing and deconstructs Shallow into our test file.
