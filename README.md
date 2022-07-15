@@ -131,3 +131,8 @@ rails db:setup
 
 ### Protected Index
 - Rather than creating a separate page, we used OffCanvas to filter the list we got from the original fetch request on the app page to render only the items that match the current user id.
+
+### Protected Create
+- We were having issues with Create that stemmed from the way we did scaffolding in the environment set up. Our solution was to recreate the app from the ground up using the correct scaffolding techniques. We took the NewApp and force pushed it to main overwriting the OldApp. All the merge history was lost in the overwrite; several devs have the OldApp on their local as a separate repo.
+
+- Protected Create is now functional. If a user hits the 'return' key at any time, it will submit the data in the forms.

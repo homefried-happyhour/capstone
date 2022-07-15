@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState, useRef } from 'react'
 import { Form, Button, Container, Col, Row } from 'react-bootstrap'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 
 export default function LastCallEdit(props) {
-
+  let { id } = useParams()
   let { editCocktail, current_user, logged_in } = props
 
   const [submit, setSubmit] = useState(false)
@@ -27,7 +27,7 @@ export default function LastCallEdit(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    editCocktail(cocktailEdit)
+    editCocktail(cocktailEdit, id)
     setSubmit(true)
   }
 

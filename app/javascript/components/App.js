@@ -42,12 +42,12 @@ export default function App(props) {
       })
   }
 
-  function editCocktail(cocktail) {
+  function editCocktail(cocktail, id) {
     console.log("fetch method put: ", JSON.stringify(cocktail))
-    fetch(`/cocktails/${cocktail.id}`, {
+    fetch(`/cocktails/${id}`, {
       body: JSON.stringify(cocktail),
       headers: { "Content-Type": "application/json" },
-      method: "PUT",
+      method: "PATCH",
     })
       .then(response => response.json())
       .then(payload => setCocktails(readCocktails()))
