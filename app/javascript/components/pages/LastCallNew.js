@@ -4,24 +4,24 @@ import { Form, Button, Container, Col, Row } from 'react-bootstrap'
 import { Navigate } from 'react-router-dom'
 
 export default function LastCallNew(props) {
-  
-  let {createCocktail, current_user, logged_in } = props
-  
+
+  let { createCocktail, current_user, logged_in } = props
+
   const [submit, setSubmit] = useState(false)
   const [cocktailNew, setCocktailNew] = useState({
     name: "",
-    image:"",
+    image: "",
     ingredients: [""],
     directions: [""],
     user_id: current_user.id
   })
- 
+
   const [ingredient, setIngredient] = useState("")
-  const [list,setList] = useState([])
-  
-  const [direction,setDirection] = useState("")
+  const [list, setList] = useState([])
+
+  const [direction, setDirection] = useState("")
   const [listDir, setListDir] = useState([])
-  
+
   const ingRef = useRef(null)
   const dirRef = useRef(null)
 
@@ -34,11 +34,11 @@ export default function LastCallNew(props) {
 
   function handleCocktailArray(ing, e) {
     e.preventDefault()
-    if(ing !== ""){
-        list.push(ing)    
-        setList(list)
-        setCocktailNew({...cocktailNew, ingredients: list})
-        setIngredient("")
+    if (ing !== "") {
+      list.push(ing)
+      setList(list)
+      setCocktailNew({ ...cocktailNew, ingredients: list })
+      setIngredient("")
     }
     ingRef.current.reset()
   }
@@ -47,100 +47,100 @@ export default function LastCallNew(props) {
 
   function handleDirectionArray(dir, e) {
     e.preventDefault()
-    if(dir !== ""){
-        listDir.push(dir)    
-        setListDir(listDir)
-        setCocktailNew({...cocktailNew, directions: listDir})
-        setDirection("")
+    if (dir !== "") {
+      listDir.push(dir)
+      setListDir(listDir)
+      setCocktailNew({ ...cocktailNew, directions: listDir })
+      setDirection("")
     }
     dirRef.current.reset()
   }
 
   return (
     <>
-    
+
       <div >
         <Container className="form-container">
           <Row>
             <Col>
-              <Row>             
-                    <h2>Make a new Cocktail</h2>
-                    <Form onSubmit={handleSubmit}>
-                      <Form.Group >
-                      <Form.Label> Name </Form.Label>
-                      <Form.Control
-                      type="text" placeholder="Name"
-                      onChange={(e) => setCocktailNew({...cocktailNew, name: e.target.value})}
-                      />
-                      </Form.Group>
-
-                      <Form.Group>
-                      <Form.Label> Image </Form.Label>
-                      <Form.Control
-                      type="text" placeholder="Image"
-                      onChange={(e) => setCocktailNew({...cocktailNew, image: e.target.value})}
-                      />
-                      </Form.Group>
-                      <Button type="submit"> Submit </Button>
-                    </Form>            
               <Row>
+                <h2>Make a new Cocktail</h2>
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group >
+                    <Form.Label> Name </Form.Label>
+                    <Form.Control
+                      type="text" placeholder="Name"
+                      onChange={(e) => setCocktailNew({ ...cocktailNew, name: e.target.value })}
+                    />
+                  </Form.Group>
+
+                  <Form.Group>
+                    <Form.Label> Image </Form.Label>
+                    <Form.Control
+                      type="text" placeholder="Image"
+                      onChange={(e) => setCocktailNew({ ...cocktailNew, image: e.target.value })}
+                    />
+                  </Form.Group>
+                  <Button type="submit"> Submit </Button>
+                </Form>
+                <Row>
                   <Form ref={ingRef} >
                     <Form.Group>
-                    <Form.Label> Ingredients </Form.Label>
-                    <Form.Control
-                    type="text" placeholder="Ingredients"
-                    onChange={(e) => setIngredient(e.target.value)}
-                    />
+                      <Form.Label> Ingredients </Form.Label>
+                      <Form.Control
+                        type="text" placeholder="Ingredients"
+                        onChange={(e) => setIngredient(e.target.value)}
+                      />
                     </Form.Group>
-                    <Button onClick={(e)=>handleCocktailArray(ingredient, e)}>Add Ingredient</Button>
+                    <Button onClick={(e) => handleCocktailArray(ingredient, e)}>Add Ingredient</Button>
                   </Form>
-              </Row>
-              <Row>
+                </Row>
+                <Row>
                   <Form ref={dirRef} >
-                      <Form.Group>
+                    <Form.Group>
                       <Form.Label> Directions </Form.Label>
                       <Form.Control
-                      type="text" placeholder="Add one step at a time"
-                      onChange={(e) => setDirection(e.target.value)}
+                        type="text" placeholder="Add one step at a time"
+                        onChange={(e) => setDirection(e.target.value)}
                       />
-                      </Form.Group>
-                      <Button onClick={(e)=>handleDirectionArray(direction, e)}>Add Step</Button>
+                    </Form.Group>
+                    <Button onClick={(e) => handleDirectionArray(direction, e)}>Add Step</Button>
                   </Form>
-              </Row>
-              <Row>
-                <div id="preview">
-                  <img src={cocktailNew.image} alt={cocktailNew.name} />
-                </div>
-              </Row>
+                </Row>
+                <Row>
+                  <div id="preview">
+                    <img src={cocktailNew.image} alt={cocktailNew.name} />
+                  </div>
+                </Row>
               </Row>
             </Col>
-          
+
             <Col>
               <Row>
                 <h3>Current Ingredients</h3>
                 <div id="ingredients">
-                    <ul>
+                  <ul>
                     {list.map((ingredient, index) => <li key={index}> {ingredient} </li>)}
-                    </ul>
+                  </ul>
                 </div>
-              </Row>  
+              </Row>
               <Row>
                 <h3>Current Directions</h3>
                 <div id="directions">
-                      <ul>
-                      {listDir.map((direction, index) => <li key={index}> {direction} </li>)}
-                      </ul>
+                  <ul>
+                    {listDir.map((direction, index) => <li key={index}> {direction} </li>)}
+                  </ul>
                 </div>
-              </Row> 
+              </Row>
             </Col>
-            
-          </Row>    
-          
-          
-          
+
+          </Row>
+
+
+
         </Container>
-      </div> 
-      {submit && <Navigate replace to="/lastcallindex"/>}
-  </>
+      </div>
+      {submit && <Navigate replace to="/lastcallindex" />}
+    </>
   )
 }
