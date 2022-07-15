@@ -1,0 +1,57 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import 'bootstrap';
+
+ .app-container {
+    max-height: 100vh;
+    margin:auto;
+    background-color: black;
+  }
+  
+  .carousel .carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height: 88.7vh;
+    overflow: hidden;
+  }
+
+ .form-container {
+    display:block;
+    height: 88.7vh;
+    object-fit: contain
+ }
+
+ #home-title {
+    color:white;
+    text-align:center
+ }
+
+ #preview {
+    object-fit: contain;
+ }
+
+ #ingredients {
+    overflow-y: scroll;
+    height: 30vh;
+ }
+ #directions {
+    overflow-y: scroll;
+    height: 30vh;
+ }
+
+ .form-height {
+    height: 80vh;
+ }
