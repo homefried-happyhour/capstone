@@ -22,10 +22,10 @@ export default function Header(props) {
     return (
       <>
       
-        <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar className="header" sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-
-                <Navbar.Brand href="/"> LastCall </Navbar.Brand>
+          
+                <Navbar.Brand href="/"><img className="header-icon" src="https://avatars.githubusercontent.com/u/108958330?s=400&u=919589679bd3b0f52b4dfdd4e78298c229337f1a&v=4"/> LastCall </Navbar.Brand>
                 <DropdownButton variant="outline-light" id="dropdown-basic-button" title="Pages">
                   <Dropdown.Item href="/lastcallindex"> Cocktails </Dropdown.Item>
                   {logged_in &&
