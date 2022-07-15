@@ -79,18 +79,17 @@ export default function App(props) {
           <Header {...props} cocktails={cocktails} deleteCocktail={deleteCocktail} />
           <Routes>
             <Route exact path="/" element={<Home cocktails={cocktails} />} />
+
             <Route path="/lastcallindex" element={<LastCallIndex cocktails={cocktails} />} />
 
             <Route path="/lastcallshow/:id" element={<LastCallShow {...props} cocktails={cocktails} deleteCocktail={deleteCocktail} readCocktails={readCocktails} />} />
 
             <Route path="/lastcallnew" element={<LastCallNew {...props} createCocktail={createCocktail} />} />
 
-            {/* BELOW IS WORK ON THE EDIT */}
-
             <Route path="/lastcalledit/:id" element={<LastCallEdit {...props} editCocktail={editCocktail} />} />
 
-            {/* END WORK ON EDIT */}
             <Route path="/about" element={<About />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
