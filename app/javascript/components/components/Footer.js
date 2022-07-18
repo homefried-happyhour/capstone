@@ -5,10 +5,10 @@ import { Navbar, Button } from 'react-bootstrap'
 export default function Footer() {
   return (
     <>
-      <Navbar fixed="bottom" collapseOnSelect expand="lg" bg="dark" variant="dark">
-        
-          <Button className="ms-auto" variant="outline-light" href="/about">About Us</Button>
-        
+      <Navbar className="color-nav" fixed="bottom" collapseOnSelect expand="lg" variant="dark">
+          <p style={{color:"white"}}>&copy; Homefried-Happy-Hour 2022</p>
+          <Button className="mx-auto" variant="outline-light" href="/about">About Us</Button>
+          
       </Navbar>
     </>
   )
