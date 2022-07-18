@@ -44,7 +44,6 @@ export default function LastCallNew(props) {
   }
 
 
-
   function handleDirectionArray(dir, e) {
     e.preventDefault()
     if (dir !== "") {
@@ -63,7 +62,7 @@ export default function LastCallNew(props) {
         <Container className="form-container">
           <Row>
             <Col>
-              <Row>
+              
                 <h2>Make a new Cocktail</h2>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group >
@@ -81,7 +80,11 @@ export default function LastCallNew(props) {
                       onChange={(e) => setCocktailNew({ ...cocktailNew, image: e.target.value })}
                     />
                   </Form.Group>
-                  <Button type="submit"> Submit </Button>
+                  <Row>
+                    <Col>
+                      <Button className="submit-button" type="submit"> Submit </Button>
+                    </Col>
+                  </Row>
                 </Form>
                 <Row>
                   <Form ref={ingRef} >
@@ -112,7 +115,7 @@ export default function LastCallNew(props) {
                     <img src={cocktailNew.image} alt={cocktailNew.name} />
                   </div>
                 </Row>
-              </Row>
+              
             </Col>
 
             <Col>

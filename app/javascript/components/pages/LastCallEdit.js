@@ -63,7 +63,7 @@ export default function LastCallEdit(props) {
         <Container className="form-container">
           <Row>
             <Col>
-              <Row>
+              
                 <h2>Edit a Cocktail</h2>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group >
@@ -81,7 +81,11 @@ export default function LastCallEdit(props) {
                       onChange={(e) => setCocktailEdit({ ...cocktailEdit, image: e.target.value })}
                     />
                   </Form.Group>
-                  <Button type="submit"> Submit </Button>
+                  <Row xs="auto">
+                    <Col>
+                      <Button className="submit-button" type="submit"> Submit </Button>
+                    </Col>
+                  </Row>
                 </Form>
                 <Row>
                   <Form ref={ingRef} >
@@ -112,7 +116,7 @@ export default function LastCallEdit(props) {
                     <img src={cocktailEdit.image} alt={cocktailEdit.name} />
                   </div>
                 </Row>
-              </Row>
+              
             </Col>
 
             <Col>
