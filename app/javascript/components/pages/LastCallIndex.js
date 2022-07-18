@@ -14,7 +14,6 @@ export default function LastCallIndex (props) {
             <Row  xd={1} md={3}>
                 {cocktails && cocktails.map((value, index) => {
                     return (
-            
                     <Card id="index-card" key={index}>
                         <Card.Img src={value.image} alt={value.name} />
                         <Card.Body>
