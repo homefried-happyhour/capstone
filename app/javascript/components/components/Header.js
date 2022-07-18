@@ -26,7 +26,7 @@ export default function Header(props) {
           <Container className="justify-content-md-center">
               <Row >
                 <Col>
-                  <Navbar.Brand href="/"><img class="img-responsive" src="https://avatars.githubusercontent.com/u/108958330?s=400&u=919589679bd3b0f52b4dfdd4e78298c229337f1a&v=4"/>
+                  <Navbar.Brand href="/"><img class="img-responsive" src="https://media.istockphoto.com/vectors/blue-cocktail-gender-reveal-icon-vector-id1251379036?b=1&k=20&m=1251379036&s=170x170&h=1soApZXiiWE5pv9VkgjhV7sz3QcioHUv361lD0gO_VU="/>
                   </Navbar.Brand>
                 {/* </Col>
                 <Col> */}

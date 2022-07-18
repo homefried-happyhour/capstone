@@ -29,12 +29,13 @@
 
 // -----HEADER-------
 .color-nav {
-	background-color: black;
-	;
+	background: #3c3b3bc7;
+    backdrop-filter: blur(4px);
 }
 
 #account .btn {
 	padding-right: 30%;
+
 }
 .img-responsive {
 	border-radius: 1rem;
@@ -42,7 +43,6 @@
 }
 
 // ----FOOTER-----
-
 
 
 
@@ -83,12 +83,16 @@
  .app-container {
     min-height: 100vh;
     margin:auto;
-	
     background: black;
     position: relative;
-    
+    background-image: url("https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+	background-attachment: fixed;
+ 	background-position: center;
+ 	background-repeat: no-repeat;
+  	background-size: cover;
 
   }
+
   .carousel {
 	z-index: 1;
   }
@@ -124,9 +128,14 @@
 
 //  -----Index------
 #index-card {
-	background-color: transparent;
-	padding-bottom: 40px;
-	border-color: white;
+	// background-color: transparent;
+	// border-color: white;
+	background: #3c3b3bc7;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 30%;
+	margin-bottom: 2.5rem;
 	
 }
 
@@ -134,9 +143,30 @@
    height: 40vh;
    object-fit: cover;
    object-position: center;
+   padding: 2rem;
+   border-radius: 2.5rem;
 
 
 }
+
+#index-card:hover{
+	transform: scale(1.05);
+ 	box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.more-info {
+	border-color: white;
+	background-color: black;
+    color: white;
+}
+.more-info:hover {
+	background-color: white;
+	color: black;
+}
+
+
+
+
 
 
 .landing-page {
