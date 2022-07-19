@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState, useRef } from 'react'
 import { Form, Button, Container, Col, Row } from 'react-bootstrap'
 import { Navigate, useParams } from 'react-router-dom'
@@ -6,6 +6,7 @@ import { Navigate, useParams } from 'react-router-dom'
 export default function LastCallEdit(props) {
   let { id } = useParams()
   let { editCocktail, current_user, logged_in } = props
+  
 
   const [submit, setSubmit] = useState(false)
   const [cocktailEdit, setCocktailEdit] = useState({
@@ -25,12 +26,23 @@ export default function LastCallEdit(props) {
   const ingRef = useRef(null)
   const dirRef = useRef(null)
 
+  let [cocktail, setCocktail] = useState([])
+  
+
+  console.log("show:", logged_in)
+  console.log("data", cocktail.user_id)
+  function showCocktails (id) {
+    fetch(`/cocktails/${id}`)
+    .then(request => request.json())
+    .then(payload => setCocktail(payload))
+    .catch(err => console.log(err))
+  }
+
   function handleSubmit(e) {
     e.preventDefault()
     editCocktail(cocktailEdit, id)
     setSubmit(true)
   }
-
 
   function handleCocktailArray(ing, e) {
     e.preventDefault()
@@ -43,8 +55,6 @@ export default function LastCallEdit(props) {
     ingRef.current.reset()
   }
 
-
-
   function handleDirectionArray(dir, e) {
     e.preventDefault()
     if (dir !== "") {
@@ -56,14 +66,20 @@ export default function LastCallEdit(props) {
     dirRef.current.reset()
   }
 
+  useEffect(() => {
+    showCocktails(id)
+  }, [])
+
   return (
     <>
 
       <div >
+        <br/>
+        <br/>
+        {cocktail.user_id === current_user.id && 
         <Container className="form-container">
           <Row>
-            <Col>
-              
+            <Col>            
                 <h2>Edit a Cocktail</h2>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group >
@@ -81,7 +97,7 @@ export default function LastCallEdit(props) {
                       onChange={(e) => setCocktailEdit({ ...cocktailEdit, image: e.target.value })}
                     />
                   </Form.Group>
-                  <Row xs="auto">
+                  <Row>
                     <Col>
                       <Button className="submit-button" type="submit"> Submit </Button>
                     </Col>
@@ -137,13 +153,16 @@ export default function LastCallEdit(props) {
                 </div>
               </Row>
             </Col>
-
           </Row>
-
-
-
         </Container>
+        }
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
       </div>
+
       {submit && <Navigate replace to="/lastcallindex" />}
     </>
   )
