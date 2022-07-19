@@ -9,10 +9,6 @@ import valerie1 from "../assets/valerie1.jpg"
 export default function About() {
   return (
     <>
-      <br />
-      <br />
-      <br />
-      <br />
       <Row md={2}>
 
         <div>
@@ -89,10 +85,6 @@ export default function About() {
         </div>
 
       </Row>
-      <br />
-      <br />
-      <br />
-      <br />
     </>
   )
 }
