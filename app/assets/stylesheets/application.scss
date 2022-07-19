@@ -457,3 +457,71 @@
 	}
 	
 }
+
+// -------About-------
+
+#about-button {
+    margin-right: 1px;
+}
+
+#about-card {
+
+    background: #3c3b3bc7;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    margin-bottom: 2.5rem;
+
+}
+
+#about-card .card-img {
+    height: 50vh;
+    object-fit: contain;
+    object-position: center;
+    padding: 1rem;
+    border-radius: 2.5rem;
+
+}
+
+#about-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+.more-info {
+    border-color: white;
+    background-color: black;
+    color: white;
+}
+
+.more-info:hover {
+    background-color: white;
+    color: black;
+}
+
+.landing-page {
+    z-index: 1;
+}
+
+@media screen and (max-width: 1400px) {
+    #about-card {
+
+        background: #3c3b3bc7;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+        margin-bottom: 2.5rem;
+
+    }
+
+    #about-card .card-img {
+        height: 50vh;
+        object-fit: cover;
+        object-position: center;
+        padding: 1rem;
+        border-radius: 2.5rem;
+
+    }
+}
