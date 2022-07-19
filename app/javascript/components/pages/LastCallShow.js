@@ -22,10 +22,13 @@ export default function LastCallShow(props) {
   
 
   return (
-    <>                   
+    <> 
+    <br/>
+    <br/>
+    <br/>                 
     {cocktail && 
-      <Card>
-          <Card.Img top style={{ width: '10rem' }} src={cocktail.image} alt="Card image cap" />
+      <Card id="show-card">
+          <Card.Img  src={cocktail.image} alt="Card image cap" />
           <Card.Body>
               <Card.Title>{cocktail.name}</Card.Title>
               <Card.Subtitle>Ingredients</Card.Subtitle>
@@ -51,7 +54,7 @@ export default function LastCallShow(props) {
                 
               </Card.Text>
               <NavLink to={`/`}>
-                  <Button> Home </Button>
+                  <Button id="home"> Home </Button>
               </NavLink>
               {logged_in &&
               <>
@@ -67,6 +70,10 @@ export default function LastCallShow(props) {
       </Card>
       }
     {remove && <Navigate replace to="/lastcallindex"/>}
+    <br/>
+    <br/>
+    <br/>
     </>
+    
   )
 }

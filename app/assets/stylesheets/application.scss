@@ -117,7 +117,11 @@
 	visibility: hidden;
   }
 
+// ----HOME-----
 
+.landing-page {
+	z-index: 1;
+ }
 
  #home-title {
     color:white;
@@ -159,12 +163,13 @@
     color: white;
 }
 .more-info:hover {
+	border-color: white;
 	background-color: white;
 	color: black;
 }
-.landing-page {
-   z-index: 1;
-}
+
+
+
 
 
 
@@ -457,3 +462,73 @@
 	}
 	
 }
+
+// -----SHOW------
+
+	#show-card {
+
+		background: #3c3b3be9;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 50%;
+		margin-bottom: 2.5rem;
+		
+	}
+	
+	#show-card .card-img{ 
+	   height: 70vh;
+	   object-fit: contain;
+	   object-position: center;
+	   padding: 2rem;
+	   border-radius: 2.5rem;
+	}
+	
+	#show-card:hover{
+		transform: scale(1.05);
+		 box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+	}
+
+	#home {
+		border-color: white;
+		background-color: black;
+		color: white;
+		margin-right: 50px
+	}
+
+	#home:hover {
+		border-color: white;
+		background-color: white;
+		color: black;
+	}
+
+	#edit {
+		border-color: white;
+		background-color: black;
+		color: white;
+		margin-right: 50px
+
+	}
+	
+	#edit:hover {
+		border-color: white;
+		background-color: white;
+		color: black;
+
+	}
+	#delete {
+		border-color: white;
+		background-color: black;
+		color: white;
+		margin-right: 50px
+	}
+	
+	#delete:hover {
+		border-color: white;
+		background-color: white;
+		color: black;
+	}
+
+	
+	
+
