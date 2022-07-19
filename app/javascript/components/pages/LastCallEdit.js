@@ -30,7 +30,7 @@ export default function LastCallEdit(props) {
   
 
   console.log("show:", logged_in)
-  console.log("data", cocktail)
+  console.log("data", cocktail.user_id)
   function showCocktails (id) {
     fetch(`/cocktails/${id}`)
     .then(request => request.json())
@@ -44,7 +44,6 @@ export default function LastCallEdit(props) {
     setSubmit(true)
   }
 
-
   function handleCocktailArray(ing, e) {
     e.preventDefault()
     if (ing !== "") {
@@ -55,8 +54,6 @@ export default function LastCallEdit(props) {
     }
     ingRef.current.reset()
   }
-
-
 
   function handleDirectionArray(dir, e) {
     e.preventDefault()
@@ -159,9 +156,9 @@ export default function LastCallEdit(props) {
           </Row>
         </Container>
         }
-        {cocktail.user_id != current_user.id &&
+        {/* {cocktail.user_id != current_user.id &&
           <Navigate replace to="/lastcallindex" />
-        }
+        } */}
         <br/>
         <br/>
         <br/>
