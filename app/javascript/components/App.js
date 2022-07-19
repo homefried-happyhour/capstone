@@ -88,7 +88,7 @@ export default function App(props) {
 
             <Route path="/lastcallnew" element={<LastCallNew {...props} createCocktail={createCocktail} />} />
 
-            <Route path="/lastcalledit/:id" element={<LastCallEdit {...props} editCocktail={editCocktail} />} />
+            <Route path="/lastcalledit/:id" element={<LastCallEdit {...props} cocktails={cocktails} editCocktail={editCocktail} />} />
 
             <Route path="/about" element={<About />} />
 

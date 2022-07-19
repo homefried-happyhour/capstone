@@ -9,6 +9,7 @@ export default function LastCallNew(props) {
 
   const [submit, setSubmit] = useState(false)
   const [cocktailNew, setCocktailNew] = useState({
+    
     name: "",
     image: "",
     ingredients: [""],
@@ -59,6 +60,8 @@ export default function LastCallNew(props) {
     <>
     
       <div >
+        <br/>
+        <br/>
         <Container className="form-container">
           <Row>
             <Col>
@@ -140,6 +143,10 @@ export default function LastCallNew(props) {
           </Row>
 
         </Container>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
       </div>
       {submit && <Navigate replace to="/lastcallindex" />}
     </>

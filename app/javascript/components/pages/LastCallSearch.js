@@ -45,8 +45,7 @@ export default function LastCallSearch(props) {
             if(includeIng || includeName) {
                     if(!searchResult.includes(cocktailObj)){
 
-                        searchResult.push(cocktailObj)
-                        
+                        searchResult.push(cocktailObj) 
                         setSearchResult(searchResult)
                     }
             } 
