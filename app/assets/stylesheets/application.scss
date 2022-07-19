@@ -20,7 +20,6 @@
 	margin: 0;
 	padding: 0;
 	font-family: 'Edu VIC WA NT Beginner', cursive;
-	background: #3c3b3bc7;
 	color: white;
 	text-align: center;
 }
@@ -505,18 +504,6 @@ form.new_user {
 	box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
 }
 
-#home {
-	border-color: white;
-	background-color: black;
-	color: white;
-	margin-right: 50px
-}
-
-#home:hover {
-	border-color: white;
-	background-color: white;
-	color: black;
-}
 
 #edit {
 	border-color: white;
@@ -545,5 +532,6 @@ form.new_user {
 	color: black;
 }
 
+
+
 // -----SIGN IN------
-form {}

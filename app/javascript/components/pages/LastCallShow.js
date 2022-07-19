@@ -53,9 +53,8 @@ export default function LastCallShow(props) {
                   }
                 
               </Card.Text>
-              <NavLink to={`/`}>
-                  <Button id="home"> Home </Button>
-              </NavLink>
+              
+        
               {logged_in &&
               <>
                 <NavLink to={`/lastcalledit/${id}`}>
