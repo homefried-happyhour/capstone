@@ -50,7 +50,7 @@
 }
 
 .form-container {
-  background: #3c3b3bc7;
+ 	background: #3c3b3bc7;
 	display: block;
 	height: 88.7vh;
 	object-fit: contain
@@ -81,20 +81,20 @@ form.new_user {
 }
 
  #preview {
-    object-fit: contain;
+ 	object-fit: contain;
  }
 
  #ingredients {
-    overflow-y: scroll;
-    height: 30vh;
+	overflow-y: scroll;
+	height: 30vh;
  }
  #directions {
-    overflow-y: scroll;
-    height: 30vh;
+ 	overflow-y: scroll;
+ 	height: 30vh;
  }
 
  .form-height {
-    height: 80vh;
+ 	height: 80vh;
  }
 
 //----OFFCANVAS---
@@ -150,8 +150,8 @@ form.new_user {
 }
 
  #home-title {
-  color:white;
-  text-align:center;
+  	color:white;
+  	text-align:center;
 	background-color: black;
 	margin: 0;
 	padding-bottom: 1rem;
