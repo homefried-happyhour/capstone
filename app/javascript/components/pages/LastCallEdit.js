@@ -156,9 +156,7 @@ export default function LastCallEdit(props) {
           </Row>
         </Container>
         }
-        {/* {cocktail.user_id != current_user.id &&
-          <Navigate replace to="/lastcallindex" />
-        } */}
+
         <br/>
         <br/>
         <br/>
