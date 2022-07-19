@@ -33,10 +33,6 @@
     backdrop-filter: blur(4px);
 }
 
-#account .btn {
-	padding-right: 30%;
-
-}
 .img-responsive {
 	border-radius: 1rem;
    	height: 5vh;
@@ -121,7 +117,10 @@
 
  #home-title {
     color:white;
-    text-align:center
+    text-align:center;
+	background-color: black;
+	margin: 0;
+	padding-bottom: 1rem;
  }
 
 

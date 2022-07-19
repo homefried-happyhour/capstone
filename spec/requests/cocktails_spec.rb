@@ -18,6 +18,7 @@ RSpec.describe "/cocktails", type: :request do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     {
+      id: 1,
       image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mimosa-1652105768.jpg?crop=1.00xw:0.668xh;0,0.118xh&resize=980:*",
       ingredients: ["sparkling wine", "orange juice"],
       directions: ["Combine chilled sparkling wine and orange juice in a champaign flute."],
@@ -28,6 +29,7 @@ RSpec.describe "/cocktails", type: :request do
 
   let(:invalid_attributes) {
     {
+      id: nil,
       image: nil,
       ingredients: nil,
       directions: nil,
@@ -41,7 +43,7 @@ RSpec.describe "/cocktails", type: :request do
   # CocktailsController, or in your router and rack
   # middleware. Be sure to keep this updated too.
   let(:valid_headers) {
-    {}
+    {"Content-Type": "application/json" }
   }
 
   User.create(email: 'adminS@homefry.com',password:'12345678', password_confirmation:'12345678')
@@ -102,8 +104,8 @@ RSpec.describe "/cocktails", type: :request do
             {
               image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mimosa-1652105768.jpg?crop=1.00xw:0.668xh;0,0.118xh&resize=980:*",
               ingredients: ["sparkling wine", "orange juice"],
-              directions: ["Combine chilled sparkling wine and orange juice in a champaign flute."],
-              name: "Mimosa",
+              directions: ["Combine chilled sparkling wine and orange juice in a champaign flute, Then add ice"],
+              name: "Mimosaaaa",
               user_id: 1
             }
       }
@@ -113,7 +115,10 @@ RSpec.describe "/cocktails", type: :request do
         patch cocktail_url(cocktail),
               params: { cocktail: new_attributes }, headers: valid_headers, as: :json
         cocktail.reload
-        skip("Add assertions for updated state")
+        expect(cocktail.name).to eq('Mimosaaaa')
+        expect(cocktail.ingredients).to eq(["sparkling wine", "orange juice"])
+        expect(cocktail.directions).to eq(["Combine chilled sparkling wine and orange juice in a champaign flute."])
+        expect(cocktail.user_id).to eq 1
       end
 
       it "renders a JSON response with the cocktail" do
