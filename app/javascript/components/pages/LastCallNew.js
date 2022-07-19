@@ -57,7 +57,7 @@ export default function LastCallNew(props) {
 
   return (
     <>
-
+    
       <div >
         <Container className="form-container">
           <Row>
@@ -138,8 +138,6 @@ export default function LastCallNew(props) {
             </Col>
 
           </Row>
-
-
 
         </Container>
       </div>
