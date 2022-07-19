@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import LastCallIndex from './pages/LastCallIndex'
-
+import LastCallSearch from './pages/LastCallSearch'
 import LastCallShow from './pages/LastCallShow'
 import LastCallNew from './pages/LastCallNew'
 import LastCallEdit from './pages/LastCallEdit'
@@ -80,13 +80,15 @@ export default function App(props) {
           <Routes>
             <Route exact path="/" element={<Home cocktails={cocktails} />} />
 
+            <Route path = "/lastcallsearch" element={<LastCallSearch cocktails={cocktails}/>}/>
+
             <Route path="/lastcallindex" element={<LastCallIndex cocktails={cocktails} />} />
 
             <Route path="/lastcallshow/:id" element={<LastCallShow {...props} cocktails={cocktails} deleteCocktail={deleteCocktail} readCocktails={readCocktails} />} />
 
             <Route path="/lastcallnew" element={<LastCallNew {...props} createCocktail={createCocktail} />} />
 
-            <Route path="/lastcalledit/:id" element={<LastCallEdit {...props} editCocktail={editCocktail} />} />
+            <Route path="/lastcalledit/:id" element={<LastCallEdit {...props} cocktails={cocktails} editCocktail={editCocktail} />} />
 
             <Route path="/about" element={<About />} />
 

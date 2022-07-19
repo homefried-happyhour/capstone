@@ -36,6 +36,7 @@ export default function Header(props) {
                 <Col>
                 <DropdownButton variant="outline-light" id="dropdown-basic-button" title="Pick Your Poison">
                   <Dropdown.Item href="/lastcallindex"> Cocktails </Dropdown.Item>
+                  <Dropdown.Item href="/lastcallsearch"> Find Cocktail </Dropdown.Item>
                   {logged_in &&
                   <Dropdown.Item href="/lastcallnew"> New Cocktail </Dropdown.Item>
                   }
@@ -50,7 +51,7 @@ export default function Header(props) {
                 }    
                 </Col>
                 <Col>
-                <DropdownButton id="account" variant="outline-light" id="dropdown-basic-button" title="Account">
+                <DropdownButton className="account" variant="outline-light" id="dropdown-basic-button" title="Account">
                     {logged_in &&  
                         <Dropdown.Item id="logout" href="/users/sign_out"> Sign Out </Dropdown.Item>
                     }
