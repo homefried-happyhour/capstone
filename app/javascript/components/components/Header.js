@@ -28,8 +28,7 @@ export default function Header(props) {
                 <Col>
                   <Navbar.Brand href="/"><img class="img-responsive" src="https://media.istockphoto.com/vectors/blue-cocktail-gender-reveal-icon-vector-id1251379036?b=1&k=20&m=1251379036&s=170x170&h=1soApZXiiWE5pv9VkgjhV7sz3QcioHUv361lD0gO_VU="/>
                   </Navbar.Brand>
-                {/* </Col>
-                <Col> */}
+          
                   <Navbar.Brand>
                     LastCall
                   </Navbar.Brand>

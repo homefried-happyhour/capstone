@@ -22,51 +22,53 @@ export default function LastCallShow(props) {
   
 
   return (
-    <>                   
-    {cocktail && 
-      <Card>
-          <Card.Img top style={{ width: '10rem' }} src={cocktail.image} alt="Card image cap" />
-          <Card.Body>
-              <Card.Title>{cocktail.name}</Card.Title>
-              <Card.Subtitle>Ingredients</Card.Subtitle>
-              <Card.Text>
+    <> 
+            
+      {cocktail && 
+        <Card id="show-card">
+            <Card.Img  src={cocktail.image} alt="Card image cap" />
+            <Card.Body>
+                <Card.Title>{cocktail.name}</Card.Title>
+                <Card.Subtitle>Ingredients</Card.Subtitle>
+                <Card.Text>
+                  
+                    {cocktail.ingredients.map((ingredient, index) => {
+                      return(
+                        <li key={index}> {ingredient} </li>
+                      )
+                    })
+                    }
+                  
+                </Card.Text>
+                <Card.Subtitle>Directions</Card.Subtitle>
+                <Card.Text>
+                  
+                    {cocktail.directions.map((direction, index) => {
+                      return(
+                        <li key={index}> {direction} </li>
+                      )
+                    })
+                    }
+                  
+                </Card.Text>
                 
-                  {cocktail.ingredients.map((ingredient, index) => {
-                    return(
-                       <li key={index}> {ingredient} </li>
-                    )
-                  })
-                  }
-                
-              </Card.Text>
-              <Card.Subtitle>Directions</Card.Subtitle>
-              <Card.Text>
-                
-                  {cocktail.directions.map((direction, index) => {
-                    return(
-                       <li key={index}> {direction} </li>
-                    )
-                  })
-                  }
-                
-              </Card.Text>
-              <NavLink to={`/`}>
-                  <Button> Home </Button>
-              </NavLink>
-              {logged_in &&
-              <>
-                <NavLink to={`/lastcalledit/${id}`}>
-                    <Button id="edit"> Edit </Button>
-                </NavLink>
-                
-                    <Button id="delete" onClick={()=>handleDelete(id)}> Remove </Button>
-                
-              </>
-              }
-          </Card.Body>
-      </Card>
-      }
-    {remove && <Navigate replace to="/lastcallindex"/>}
+          
+                {logged_in &&
+                <>
+                  <NavLink to={`/lastcalledit/${id}`}>
+                      <Button id="edit"> Edit </Button>
+                  </NavLink>
+                  
+                      <Button id="delete" onClick={()=>handleDelete(id)}> Remove </Button>
+                  
+                </>
+                }
+            </Card.Body>
+        </Card>
+        }
+      {remove && <Navigate replace to="/lastcallindex"/>}
+   
     </>
+    
   )
 }
