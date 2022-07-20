@@ -1,4 +1,14 @@
-<h2>Change your password</h2>
+<%= react_component 'components/Header', {
+  logged_in: user_signed_in?,
+  current_user: current_user,
+  new_user_route: new_user_registration_path,
+  sign_in_route: new_user_session_path,
+  sign_out_route: destroy_user_session_path
+} %>
+
+<%= react_component 'components/Footer'%>
+
+<h2 id="account-text">Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
