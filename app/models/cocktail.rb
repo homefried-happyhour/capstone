@@ -1,6 +1,6 @@
 class Cocktail < ApplicationRecord
   belongs_to :user
-  validates :name, :image, presence:true
+  validates :name, :image, :ingredients, :directions, presence:true
   validate :ingredients_is_array, :directions_is_array
   
   def ingredients_is_array

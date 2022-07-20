@@ -18,7 +18,6 @@ RSpec.describe "/cocktails", type: :request do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     {
-      
       image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mimosa-1652105768.jpg?crop=1.00xw:0.668xh;0,0.118xh&resize=980:*",
       ingredients: ["sparkling wine", "orange juice"],
       directions: ["Combine chilled sparkling wine and orange juice in a champaign flute."],
@@ -26,7 +25,6 @@ RSpec.describe "/cocktails", type: :request do
       user_id: 1
     }
   }
-
   let(:invalid_attributes) {
     {
       id: nil,
@@ -104,8 +102,8 @@ RSpec.describe "/cocktails", type: :request do
       let(:new_attributes) {
             {
               image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mimosa-1652105768.jpg?crop=1.00xw:0.668xh;0,0.118xh&resize=980:*",
-              ingredients: ["sparkling wine", "orange juice"],
-              directions: ["Combine chilled sparkling wine and orange juice in a champaign flute, Then add ice"],
+              ingredients: ["sparkling wine", "orange juice", "ice"],
+              directions: ["Combine chilled sparkling wine and orange juice in a champaign flute", "Then add ice"],
               name: "Mimosaaaa",
               user_id: 1
             }
@@ -116,9 +114,9 @@ RSpec.describe "/cocktails", type: :request do
         patch cocktail_url(cocktail),
               params: { cocktail: new_attributes }, headers: valid_headers, as: :json
         cocktail.reload
-        expect(cocktail.name).to eq('Mimosaaaa')
-        expect(cocktail.ingredients).to eq(["sparkling wine", "orange juice"])
-        expect(cocktail.directions).to eq(["Combine chilled sparkling wine and orange juice in a champaign flute."])
+        expect(cocktail.name).to eq 'Mimosaaaa'
+        expect(cocktail.ingredients).to eq ["sparkling wine", "orange juice", "ice"]
+        expect(cocktail.directions).to eq ["Combine chilled sparkling wine and orange juice in a champaign flute", "Then add ice"]
         expect(cocktail.user_id).to eq 1
       end
 
