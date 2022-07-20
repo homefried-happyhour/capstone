@@ -27,7 +27,7 @@ RSpec.describe Cocktail, type: :model do
       }
     )
     p cocktail.errors
-    expect(cocktail.errors).to_not be_empty
+    expect(cocktail.errors[:name]).to_not be_empty
   
   end
   it 'cannot create a cocktail with an empty image' do
@@ -39,7 +39,7 @@ RSpec.describe Cocktail, type: :model do
       }
     )
     p cocktail.errors
-    expect(cocktail.errors).to_not be_empty
+    expect(cocktail.errors[:image]).to_not be_empty
   
   end
   it 'cannot create a cocktail with an empty ingredients' do
@@ -51,7 +51,7 @@ RSpec.describe Cocktail, type: :model do
       }
     )
     p cocktail.errors
-    expect(cocktail.errors).to_not be_empty
+    expect(cocktail.errors[:ingredients]).to_not be_empty
   
   end
   it 'cannot create a cocktail with an empty directions' do
@@ -63,7 +63,7 @@ RSpec.describe Cocktail, type: :model do
      }
     )
     p cocktail.errors
-    expect(cocktail.errors).to_not be_empty
+    expect(cocktail.errors[:directions]).to_not be_empty
   
   end
 end

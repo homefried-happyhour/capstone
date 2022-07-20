@@ -44,4 +44,9 @@ describe("When LastCallShow renders", () => {
         const editButton = lastCallShowRender.find(`[id="edit"]`)
         expect(editButton.length).toEqual(1)
     })
+    it("displays a edit button when logged in", () => {
+        const lastCallShowRender = shallow(<LastCallShow logged_in={ logged } cocktails={cocktails} />)
+        const editButton = lastCallShowRender.find(`[id="edit"]`)
+        expect(editButton.length).toEqual(1)
+    })
 })
