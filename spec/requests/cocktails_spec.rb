@@ -18,7 +18,6 @@ RSpec.describe "/cocktails", type: :request do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     {
-      
       image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mimosa-1652105768.jpg?crop=1.00xw:0.668xh;0,0.118xh&resize=980:*",
       ingredients: ["sparkling wine", "orange juice"],
       directions: ["Combine chilled sparkling wine and orange juice in a champaign flute."],
@@ -26,7 +25,6 @@ RSpec.describe "/cocktails", type: :request do
       user_id: 1
     }
   }
-
   let(:invalid_attributes) {
     {
       id: nil,

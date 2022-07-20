@@ -2,11 +2,11 @@ import React from 'react'
 import { useState, useRef } from 'react'
 import { Form, Button, Card, Container, Row } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
+import Ingredient from './Ingredient.js'
 
 export default function LastCallSearch(props) {
     let [searchResult, setSearchResult] = useState([])
     let [ingredient, setIngredient] = useState("")
-    let [list, setList] = useState([])
    
     const ingRef = useRef(null)
     const { cocktails } = props
@@ -23,7 +23,6 @@ export default function LastCallSearch(props) {
 
             if(includeIng || includeName) {
                     if(!searchResult.includes(cocktailObj)){
-
                         searchResult.push(cocktailObj) 
                         setSearchResult(searchResult)
                     }
@@ -66,19 +65,3 @@ export default function LastCallSearch(props) {
 }
 
 
-const Ingredient = (props) => {
-    let { cocktail } = props
-    return (
-        <>
-        <Card id="index-card">
-          <Card.Img src={cocktail.image} alt="Card image cap" />
-          <Card.Body>
-              <Card.Title>{cocktail.name}</Card.Title>
-              <NavLink to={`/lastcallshow/${cocktail.id}`}>
-                <Button className="more-info"> More Info </Button>
-            </NavLink>
-          </Card.Body>
-        </Card>
-        </>
-    )
-}
