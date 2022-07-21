@@ -30,21 +30,26 @@ export default function Header(props) {
         fixed="top"
         collapseOnSelect
         expand="lg"
-        variant="dark"
-      >
-        <Container className="justify-content-md-center">
-          <Row>
-            <Col>
-              <Navbar.Brand href="/">
+        >
+           
+            <div className="logo">
+              <Navbar.Brand style={{color: "white"}} href="/">
                 <img
                   class="img-responsive"
                   src="https://media.istockphoto.com/vectors/blue-cocktail-gender-reveal-icon-vector-id1251379036?b=1&k=20&m=1251379036&s=170x170&h=1soApZXiiWE5pv9VkgjhV7sz3QcioHUv361lD0gO_VU="
                 />
-                {`   LastCall`}
+                LastCall
               </Navbar.Brand>
-            </Col>
-
-            <Col>
+            </div>
+              
+            <div className="header-btn">
+              {logged_in && (
+                <Button variant="outline-light" onClick={handleShow}>
+                  My Cocktails
+                </Button>
+              )}
+            </div>
+            <div className="header-btn">
               <DropdownButton
                 variant="outline-light"
                 id="dropdown-basic-button"
@@ -62,16 +67,10 @@ export default function Header(props) {
                   </Dropdown.Item>
                 )}
               </DropdownButton>
-            </Col>
+            </div>
 
-            <Col>
-              {logged_in && (
-                <Button variant="outline-light" onClick={handleShow}>
-                  My Cocktails
-                </Button>
-              )}
-            </Col>
-            <Col>
+         
+            <div className="header-btn">
               <DropdownButton
                 className="account"
                 variant="outline-light"
@@ -91,9 +90,8 @@ export default function Header(props) {
                   <Dropdown.Item href="/users/sign_up"> Sign Up </Dropdown.Item>
                 )}
               </DropdownButton>
-            </Col>
-          </Row>
-        </Container>
+            </div>
+           
       </Navbar>
 
       {logged_in && cocktails && (

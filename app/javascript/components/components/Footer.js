@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Button } from "react-bootstrap";
+import { Navbar, Button, Col, Row } from "react-bootstrap";
 
 export default function Footer() {
   return (
@@ -9,14 +9,19 @@ export default function Footer() {
         fixed="bottom"
         collapseOnSelect
         expand="lg"
-        variant="dark"
-      >
-        <p id="copyright" style={{ color: "white" }}>
-          &copy; Homefried-Happy-Hour 2022
-        </p>
-        <Button className="mx-auto" variant="outline-light" href="/about">
-          About Us
-        </Button>
+        
+      > 
+        <div>
+          <p id="copyright" style={{ color: "white" }}>
+            &copy; Homefried-Happy-Hour 2022
+          </p>
+        </div>
+        <div className="about-us-btn">
+          <Button href="/about">
+            About Us
+          </Button>
+        </div>
+      
       </Navbar>
     </>
   );
