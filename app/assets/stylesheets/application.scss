@@ -164,18 +164,17 @@ form.new_user {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 30%;
+	width: 95%;
 	margin-bottom: 2.5rem;
 
 }
 
 #index-card .card-img {
-	height: 40vh;
+	height: 50vh;
 	object-fit: cover;
 	object-position: center;
-	padding: 2rem;
+	padding: 1rem;
 	border-radius: 2.5rem;
-
 
 }
 
@@ -197,6 +196,26 @@ form.new_user {
 }
 
 
+
+    #index-card {
+
+        background: #3c3b3bc7;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+        margin-bottom: 2.5rem;
+
+    }
+
+    #index-card .card-img {
+        height: 50vh;
+        object-fit: cover;
+        object-position: center;
+        padding: 1rem;
+        border-radius: 2.5rem;
+
+    }
 
 
 
