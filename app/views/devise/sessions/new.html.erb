@@ -1,44 +1,34 @@
-
 <div class="devise-container">
-<%= react_component 'components/Header', {
+  <%= react_component 'components/Header', {
   logged_in: user_signed_in?,
   current_user: current_user,
   new_user_route: new_user_registration_path,
   sign_in_route: new_user_session_path,
   sign_out_route: destroy_user_session_path
 } %>
-
-<%= react_component 'components/Footer'%> 
-
-
-<div class="row" id="devise-form">
-  <div class="col-md-4"> 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"form-horizontal") do |f| %>
-    <div class="form-group">
-    <h2 id="account-text">Sign In</h2>
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+  <%= react_component 'components/Footer'%>
+  <div class="row" id="devise-form">
+    <div class="col-md-4">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"form-horizontal") do |f| %>
+        <div class="form-group">
+          <h2 id="account-text">Sign In</h2>
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :password, class:"control-label" %><br />
+          <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+        </div>
+        <% if devise_mapping.rememberable? %>
+          <div class="form-group">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me, class:"control-label" %>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <%= f.submit "Sign in", class:"btn btn-dark" %>
+        </div>
+      <% end %>
     </div>
-    
-    <div class="form-group">
-      <%= f.label :password, class:"control-label" %><br />
-      <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
-    </div>
-
-    <% if devise_mapping.rememberable? %>
-      <div class="form-group">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me, class:"control-label" %>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.submit "Sign in", class:"btn btn-dark" %>
-    </div>
-  <% end %>
-
- 
   </div>
 </div>
-</div>
-
