@@ -9,9 +9,9 @@ export default function LastCallIndex(props) {
     const [search, setSearch] = useState(cocktails)
     return (
         <>
-            <Container>
-                <Row xd={1} md={3}>
-
+            <Container fluid="md">
+                <Row  md={2} lg={3}>
+                
                     {cocktails && cocktails.map((value, index) => {
                         return (
                             <div>
