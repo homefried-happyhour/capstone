@@ -9,7 +9,7 @@ import valerie1 from "../assets/valerie1.jpg"
 export default function About() {
   return (
     <>
-      <Row md={2}>
+      <Row md={2} >
 
         <div>
           <Card id="about-card" >
