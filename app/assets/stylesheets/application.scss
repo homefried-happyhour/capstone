@@ -547,7 +547,8 @@
 form.new_user {
 	background: #3c3b3bc7;
 	padding-top: 10rem;
-	padding-bottom: 15rem;
+	padding-bottom: 10rem;
+	margin-top: 3rem;
 
 }
 
@@ -556,7 +557,7 @@ form.new_user {
 }
 
 #devise-form {
-	min-height: 80vh;
+	min-height: 88vh;
 	background-image: url("https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
 	background-attachment: fixed;
 	background-position: center;
@@ -564,6 +565,10 @@ form.new_user {
 	background-size: cover;
 
 
+}
+
+.devise-container {
+	display: block;
 }
 
 
