@@ -29,7 +29,7 @@ export default function LastCallNew(props) {
     setSubmit(true);
   }
 
-  function handleCocktailArray(ing, e) {
+  function handleCocktailArray(ing) {
     e.preventDefault();
     if (ing !== "") {
       list.push(ing);
@@ -40,7 +40,7 @@ export default function LastCallNew(props) {
     ingRef.current.reset();
   }
 
-  function handleDirectionArray(dir, e) {
+  function handleDirectionArray(dir) {
     e.preventDefault();
     if (dir !== "") {
       listDir.push(dir);
@@ -82,7 +82,7 @@ export default function LastCallNew(props) {
                       onChange={(e) => setIngredient(e.target.value)}
                     />
                   </Form.Group>
-                  <Button onClick={(e) => handleCocktailArray(ingredient, e)}>
+                  <Button onClick={() => handleCocktailArray(ingredient)}>
                     Add Ingredient
                   </Button>
                 </Form>
@@ -97,7 +97,7 @@ export default function LastCallNew(props) {
                       onChange={(e) => setDirection(e.target.value)}
                     />
                   </Form.Group>
-                  <Button onClick={(e) => handleDirectionArray(direction, e)}>
+                  <Button onClick={() => handleDirectionArray(direction)}>
                     Add Step
                   </Button>
                 </Form>
