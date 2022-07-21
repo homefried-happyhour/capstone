@@ -108,7 +108,6 @@ let { cocktails } = props
       }
       </Carousel>
     </div>
-
 </div>
     </>
   )
