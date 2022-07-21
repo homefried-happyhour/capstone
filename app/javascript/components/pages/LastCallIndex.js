@@ -10,8 +10,7 @@ export default function LastCallIndex(props) {
     return (
         <>
             <Container fluid="md">
-                <Row  md={2} lg={3}>
-                
+                <Row md={2} lg={3}>
                     {cocktails && cocktails.map((value, index) => {
                         return (
                             <div>
@@ -28,7 +27,6 @@ export default function LastCallIndex(props) {
                         )
                     })
                     }
-
                 </Row>
             </Container>
         </>
