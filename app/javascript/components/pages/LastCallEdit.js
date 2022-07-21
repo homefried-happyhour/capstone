@@ -27,8 +27,6 @@ export default function LastCallEdit(props) {
 
   let [cocktail, setCocktail] = useState([]);
 
-  console.log("show:", logged_in);
-  console.log("data", cocktail.user_id);
   function showCocktails(id) {
     fetch(`/cocktails/${id}`)
       .then((request) => request.json())
