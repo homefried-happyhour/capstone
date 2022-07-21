@@ -30,17 +30,25 @@
 
 // -----HEADER-------
 .color-nav {
-	background: #3c3b3bc7;
+	background: #3c3b3be7;
 	backdrop-filter: blur(4px);
 }
 
 .img-responsive {
 	border-radius: 1rem;
 	height: 5vh;
+	margin-right: 0.5rem;
+}
+
+.justify-content-md-center {
+	padding-bottom: 1rem;
+	padding-top: 1rem;
 }
 
 // ----FOOTER-----
-
+#copyright {
+	padding-left: 1rem;
+}
 
 
 
@@ -107,6 +115,7 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	padding-top: 5.5rem;
 
 }
 
@@ -148,7 +157,9 @@
   	text-align:center;
 	background-color: black;
 	margin: 0;
-	padding-bottom: 1rem;
+	padding-bottom: 0.5rem;
+	padding-top: 0.5rem;
+
  }
 
 //  -----Index------
@@ -159,7 +170,8 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 30%;
-	margin-bottom: 2.5rem;
+	margin-bottom: 5rem;
+	margin-top: 2rem;
 
 }
 
@@ -167,7 +179,7 @@
 	height: 40vh;
 	object-fit: cover;
 	object-position: center;
-	padding: 2rem;
+	padding: 1rem;
 	border-radius: 2.5rem;
 
 
@@ -548,7 +560,7 @@ form.new_user {
 	background: #3c3b3bc7;
 	padding-top: 10rem;
 	padding-bottom: 10rem;
-	margin-top: 3rem;
+	margin-top: 10rem;
 
 }
 
@@ -557,7 +569,7 @@ form.new_user {
 }
 
 #devise-form {
-	min-height: 88vh;
+	min-height: 100vh;
 	background-image: url("https://images.unsplash.com/photo-1572116469696-31de0f17cc34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YmFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
 	background-attachment: fixed;
 	background-position: center;

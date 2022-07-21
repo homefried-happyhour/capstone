@@ -22,17 +22,16 @@ export default function Header(props) {
     return (
       <>
       
-        <Navbar className="color-nav" sticky="top" collapseOnSelect expand="lg" variant="dark">
+        <Navbar className="color-nav" fixed="top" collapseOnSelect expand="lg" variant="dark">
           <Container className="justify-content-md-center">
               <Row >
                 <Col>
                   <Navbar.Brand href="/"><img class="img-responsive" src="https://media.istockphoto.com/vectors/blue-cocktail-gender-reveal-icon-vector-id1251379036?b=1&k=20&m=1251379036&s=170x170&h=1soApZXiiWE5pv9VkgjhV7sz3QcioHUv361lD0gO_VU="/>
+                         {`   LastCall`}
                   </Navbar.Brand>
-          
-                  <Navbar.Brand>
-                    LastCall
-                  </Navbar.Brand>
-                </Col>
+                    </Col>
+  
+            
                 <Col>
                 <DropdownButton variant="outline-light" id="dropdown-basic-button" title="Pick Your Poison">
                   <Dropdown.Item href="/lastcallindex"> Cocktails </Dropdown.Item>
