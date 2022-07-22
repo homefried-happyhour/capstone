@@ -125,6 +125,9 @@
 #ingredients {
   overflow-y: scroll;
   height: 30vh;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
 }
 
 #ingredients ul li {
@@ -136,6 +139,7 @@
   overflow-y: scroll;
   height: 30vh;
 }
+
 
 #directions ol li {
   text-align: left;
@@ -235,10 +239,17 @@
   position: relative;
   top: 60px;
   padding-bottom: 21px;
+  padding-top: 3rem;
   display: block;
   height: 86vh;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+.index-component::-webkit-scrollbar {
+  display: none;
+}
+
 #index-card {
   background: #3c3b3bc7;
   display: block;

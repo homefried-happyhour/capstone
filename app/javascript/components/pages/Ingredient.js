@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 export default function Ingredient(props) {
-  let { cocktail } = props;
+  const { cocktail } = props;
   return (
     <>
       <Card id="index-card">
