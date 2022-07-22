@@ -5,7 +5,7 @@ import { NavLink, useParams, Navigate } from "react-router-dom";
 export default function LastCallShow(props) {
   let [remove, setRemove] = useState(false);
 
-  const { logged_in, deleteCocktail, readCocktails } = props;
+  const { logged_in, deleteCocktail, readCocktails, current_user } = props;
   const { id } = useParams();
 
   const { cocktails } = props;
@@ -36,19 +36,18 @@ export default function LastCallShow(props) {
                 return <li key={index}> {direction} </li>;
               })}
             </Card.Text>
+            <div className="btn-container">
+              <Button href="/">Home</Button>
+              {logged_in && cocktail.user_id == current_user.id && (
+                <>
+                  <NavLink to={`/lastcalledit/${id}`}>
+                    <Button> Edit </Button>
+                  </NavLink>
 
-            {logged_in && (
-              <>
-                <NavLink to={`/lastcalledit/${id}`}>
-                  <Button id="edit"> Edit </Button>
-                </NavLink>
-
-                <Button id="delete" onClick={() => handleDelete(id)}>
-                  {" "}
-                  Remove{" "}
-                </Button>
-              </>
-            )}
+                  <Button onClick={() => handleDelete(id)}> Remove </Button>
+                </>
+              )}
+            </div>
           </Card.Body>
         </Card>
       )}

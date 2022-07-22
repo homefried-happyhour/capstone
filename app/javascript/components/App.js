@@ -69,12 +69,12 @@ export default function App(props) {
   return (
     <>
       <Router>
+        <Header
+          {...props}
+          cocktails={cocktails}
+          deleteCocktail={deleteCocktail}
+        />
         <div className="app-container">
-          <Header
-            {...props}
-            cocktails={cocktails}
-            deleteCocktail={deleteCocktail}
-          />
           <Routes>
             <Route exact path="/" element={<Home cocktails={cocktails} />} />
 
@@ -122,8 +122,8 @@ export default function App(props) {
 
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <Footer />
         </div>
+        <Footer />
       </Router>
     </>
   );

@@ -1,19 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Form, Button, Container, Col, Row } from "react-bootstrap";
+import { Form, Button, Container, Col, Row, Stack } from "react-bootstrap";
 import { Navigate, useParams } from "react-router-dom";
 
 export default function LastCallEdit(props) {
   let { id } = useParams();
-  let { editCocktail, current_user, logged_in } = props;
+  let { editCocktail, current_user } = props;
 
   const [submit, setSubmit] = useState(false);
-  const [cocktailEdit, setCocktailEdit] = useState({
-    name: "",
-    image: "",
-    ingredients: [""],
-    directions: [""],
-    user_id: current_user.id,
-  });
+  const [cocktailEdit, setCocktailEdit] = useState({});
 
   const [ingredient, setIngredient] = useState("");
   const [list, setList] = useState([]);
@@ -24,12 +18,14 @@ export default function LastCallEdit(props) {
   const ingRef = useRef(null);
   const dirRef = useRef(null);
 
-  let [cocktail, setCocktail] = useState([]);
-
   function showCocktails(id) {
     fetch(`/cocktails/${id}`)
       .then((request) => request.json())
-      .then((payload) => setCocktail(payload))
+      .then((payload) => {
+        setCocktailEdit(payload);
+        setList(payload.ingredients);
+        setListDir(payload.directions);
+      })
       .catch((err) => console.errors(err));
   }
 
@@ -65,20 +61,20 @@ export default function LastCallEdit(props) {
 
   return (
     <>
-      <div>
-        {cocktail.user_id === current_user.id && (
+      <div className="component">
+        {cocktailEdit.user_id === current_user.id && (
           <Container className="form-container">
             <Row>
               <Col>
                 <h2>Edit a Cocktail</h2>
-
-                <Row>
+                <Stack gap={3}>
                   <Form>
                     <Form.Group>
                       <Form.Label> Name </Form.Label>
                       <Form.Control
                         type="text"
                         placeholder="Name"
+                        value={cocktailEdit.name}
                         onChange={(e) =>
                           setCocktailEdit({
                             ...cocktailEdit,
@@ -88,42 +84,43 @@ export default function LastCallEdit(props) {
                       />
                     </Form.Group>
                   </Form>
-                </Row>
-                <Row>
+
                   <Form ref={ingRef}>
                     <Form.Group>
-                      <Form.Label> Ingredients </Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Ingredients"
-                        onChange={(e) => setIngredient(e.target.value)}
-                      />
+                      <Stack direction="horizontal" gap={5}>
+                        <Form.Control
+                          type="text"
+                          className="me-auto"
+                          placeholder="Add your ingredients here"
+                          onChange={(e) => setIngredient(e.target.value)}
+                        />
+                        <Button
+                          style={{ width: "10rem" }}
+                          onClick={() => handleCocktailArray(ingredient)}
+                        >
+                          Add Ingredient
+                        </Button>
+                      </Stack>
                     </Form.Group>
-                    <Button onClick={() => handleCocktailArray(ingredient)}>
-                      Add Ingredient
-                    </Button>
                   </Form>
-                </Row>
-                <Row>
                   <Form ref={dirRef}>
                     <Form.Group>
-                      <Form.Label> Directions </Form.Label>
-                      <Form.Control
-                        type="text"
-                        placeholder="Add one step at a time"
-                        onChange={(e) => setDirection(e.target.value)}
-                      />
+                      <Stack direction="horizontal" gap={5}>
+                        <Form.Control
+                          type="text"
+                          placeholder="Add one step at a time"
+                          onChange={(e) => setDirection(e.target.value)}
+                        />
+                        <Button
+                          style={{ width: "10rem" }}
+                          onClick={() => handleDirectionArray(direction)}
+                        >
+                          Add Step
+                        </Button>
+                      </Stack>
                     </Form.Group>
-                    <Button onClick={() => handleDirectionArray(direction)}>
-                      Add Step
-                    </Button>
                   </Form>
-                </Row>
-                <Row>
-                  <div id="preview">
-                    <img src={cocktailEdit.image} alt={cocktailEdit.name} />
-                  </div>
-                </Row>
+                </Stack>
                 <Row>
                   <Form onSubmit={handleSubmit}>
                     <Form.Group>
@@ -131,6 +128,7 @@ export default function LastCallEdit(props) {
                       <Form.Control
                         type="text"
                         placeholder="Image"
+                        value={cocktailEdit.image}
                         onChange={(e) =>
                           setCocktailEdit({
                             ...cocktailEdit,
@@ -141,13 +139,19 @@ export default function LastCallEdit(props) {
                     </Form.Group>
                     <Row>
                       <Col>
-                        <Button className="submit-button" type="submit">
-                          {" "}
-                          Submit{" "}
-                        </Button>
+                        <div className="btn-container">
+                          <Button className="submit-button" type="submit">
+                            Submit
+                          </Button>
+                        </div>
                       </Col>
                     </Row>
                   </Form>
+                  <Row>
+                    <div className="contain">
+                      <img src={cocktailEdit.image} alt={cocktailEdit.name} />
+                    </div>
+                  </Row>
                 </Row>
               </Col>
 
@@ -157,7 +161,19 @@ export default function LastCallEdit(props) {
                   <div id="ingredients">
                     <ul>
                       {list.map((ingredient, index) => (
-                        <li key={index}> {ingredient} </li>
+                        <li key={index}>
+                          {" "}
+                          <Button
+                            className="subtract"
+                            onClick={() =>
+                              setList(list.filter((ing) => ing !== ingredient))
+                            }
+                          >
+                            {" "}
+                            -{" "}
+                          </Button>{" "}
+                          {ingredient}{" "}
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -165,11 +181,24 @@ export default function LastCallEdit(props) {
                 <Row>
                   <h3>Current Directions</h3>
                   <div id="directions">
-                    <ul>
+                    <ol>
                       {listDir.map((direction, index) => (
-                        <li key={index}> {direction} </li>
+                        <li key={index}>
+                          <Button
+                            className="subtract"
+                            onClick={() =>
+                              setListDir(
+                                listDir.filter((dir) => dir !== direction)
+                              )
+                            }
+                          >
+                            {" "}
+                            -{" "}
+                          </Button>{" "}
+                          {direction}{" "}
+                        </li>
                       ))}
-                    </ul>
+                    </ol>
                   </div>
                 </Row>
               </Col>
@@ -177,7 +206,6 @@ export default function LastCallEdit(props) {
           </Container>
         )}
       </div>
-
       {submit && <Navigate replace to="/lastcallindex" />}
     </>
   );

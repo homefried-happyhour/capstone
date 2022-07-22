@@ -6,8 +6,8 @@ export default function LastCallIndex(props) {
   const { cocktails } = props;
   return (
     <>
-      <Container fluid="md">
-        <Row md={2} lg={3}>
+      <Container>
+        <Row md={3}>
           {cocktails &&
             cocktails.map((value, index) => {
               return (
@@ -17,7 +17,7 @@ export default function LastCallIndex(props) {
                     <Card.Body>
                       <Card.Title>{value.name}</Card.Title>
                       <NavLink to={`/lastcallshow/${value.id}`}>
-                        <Button className="more-info"> More Info </Button>
+                        <Button> More Info </Button>
                       </NavLink>
                     </Card.Body>
                   </Card>

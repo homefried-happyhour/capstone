@@ -21,8 +21,7 @@ export default function About() {
                 id="about-button"
                 variant="outline-light"
               >
-                {" "}
-                GitHub{" "}
+                GitHub
               </Button>
               <Button
                 href={`https://www.linkedin.com/in/sean-alexander-59195077/`}
@@ -30,8 +29,7 @@ export default function About() {
                 id="about-button"
                 variant="outline-light"
               >
-                {" "}
-                LinkedIn{" "}
+                LinkedIn
               </Button>
 
               <Card.Text>
@@ -60,8 +58,7 @@ export default function About() {
                 id="about-button"
                 variant="outline-light"
               >
-                {" "}
-                Portfolio{" "}
+                Portfolio
               </Button>
               <Button
                 href={`https://github.com/michael-a-tobias`}
@@ -69,8 +66,7 @@ export default function About() {
                 id="about-button"
                 variant="outline-light"
               >
-                {" "}
-                GitHub{" "}
+                GitHub
               </Button>
               <Button
                 href={`https://www.linkedin.com/in/michael-a-tobias/`}
@@ -78,8 +74,7 @@ export default function About() {
                 id="about-button"
                 variant="outline-light"
               >
-                {" "}
-                LinkedIn{" "}
+                LinkedIn
               </Button>
               <Card.Text>
                 Michael is a US Army veteran and former police officer who
@@ -105,8 +100,7 @@ export default function About() {
                 id="about-button"
                 variant="outline-light"
               >
-                {" "}
-                GitHub{" "}
+                GitHub
               </Button>
               <Button
                 href={`https://www.linkedin.com/in/don-yoon/`}
@@ -114,8 +108,7 @@ export default function About() {
                 id="about-button"
                 variant="outline-light"
               >
-                {" "}
-                LinkedIn{" "}
+                LinkedIn
               </Button>
               <Card.Text>
                 Don Yoon is a full stack developer working to provide meaningful
@@ -147,8 +140,7 @@ export default function About() {
                 id="about-button"
                 variant="outline-light"
               >
-                {" "}
-                Portfolio{" "}
+                Portfolio
               </Button>
               <Button
                 href={`https://github.com/vjtovar`}
@@ -156,8 +148,7 @@ export default function About() {
                 id="about-button"
                 variant="outline-light"
               >
-                {" "}
-                GitHub{" "}
+                GitHub
               </Button>
               <Button
                 href={`https://www.linkedin.com/in/valerie-j-tovar/`}
@@ -165,8 +156,7 @@ export default function About() {
                 id="about-button"
                 variant="outline-light"
               >
-                {" "}
-                LinkedIn{" "}
+                LinkedIn
               </Button>
               <Card.Text>
                 Valerie Tovar comes from a Biotechnology background where she

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Form, Button, Container, Col, Row } from "react-bootstrap";
+import { Form, Button, Container, Col, Row, Stack } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
 
 export default function LastCallNew(props) {
@@ -30,7 +30,6 @@ export default function LastCallNew(props) {
   }
 
   function handleCocktailArray(ing) {
-    e.preventDefault();
     if (ing !== "") {
       list.push(ing);
       setList(list);
@@ -41,7 +40,6 @@ export default function LastCallNew(props) {
   }
 
   function handleDirectionArray(dir) {
-    e.preventDefault();
     if (dir !== "") {
       listDir.push(dir);
       setListDir(listDir);
@@ -53,12 +51,12 @@ export default function LastCallNew(props) {
 
   return (
     <>
-      <div>
+      <div className="component">
         <Container className="form-container">
           <Row>
             <Col>
               <h2>Make a new Cocktail</h2>
-              <Row>
+              <Stack gap={3}>
                 <Form>
                   <Form.Group>
                     <Form.Label> Name </Form.Label>
@@ -66,42 +64,51 @@ export default function LastCallNew(props) {
                       type="text"
                       placeholder="Name"
                       onChange={(e) =>
-                        setCocktailNew({ ...cocktailNew, name: e.target.value })
+                        setCocktailNew({
+                          ...cocktailNew,
+                          name: e.target.value,
+                        })
                       }
                     />
                   </Form.Group>
                 </Form>
-              </Row>
-              <Row>
+
                 <Form ref={ingRef}>
                   <Form.Group>
-                    <Form.Label> Ingredients </Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Ingredients"
-                      onChange={(e) => setIngredient(e.target.value)}
-                    />
+                    <Stack direction="horizontal" gap={5}>
+                      <Form.Control
+                        type="text"
+                        className="me-auto"
+                        placeholder="Add your ingredients here"
+                        onChange={(e) => setIngredient(e.target.value)}
+                      />
+                      <Button
+                        style={{ width: "10rem" }}
+                        onClick={() => handleCocktailArray(ingredient)}
+                      >
+                        Add Ingredient
+                      </Button>
+                    </Stack>
                   </Form.Group>
-                  <Button onClick={() => handleCocktailArray(ingredient)}>
-                    Add Ingredient
-                  </Button>
                 </Form>
-              </Row>
-              <Row>
                 <Form ref={dirRef}>
                   <Form.Group>
-                    <Form.Label> Directions </Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="Add one step at a time"
-                      onChange={(e) => setDirection(e.target.value)}
-                    />
+                    <Stack direction="horizontal" gap={5}>
+                      <Form.Control
+                        type="text"
+                        placeholder="Add one step at a time"
+                        onChange={(e) => setDirection(e.target.value)}
+                      />
+                      <Button
+                        style={{ width: "10rem" }}
+                        onClick={() => handleDirectionArray(direction)}
+                      >
+                        Add Step
+                      </Button>
+                    </Stack>
                   </Form.Group>
-                  <Button onClick={() => handleDirectionArray(direction)}>
-                    Add Step
-                  </Button>
                 </Form>
-              </Row>
+              </Stack>
               <Row>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group>
@@ -119,16 +126,17 @@ export default function LastCallNew(props) {
                   </Form.Group>
                   <Row>
                     <Col>
-                      <Button className="submit-button" type="submit">
-                        {" "}
-                        Submit{" "}
-                      </Button>
+                      <div className="btn-container">
+                        <Button className="submit-button" type="submit">
+                          Submit
+                        </Button>
+                      </div>
                     </Col>
                   </Row>
                 </Form>
               </Row>
               <Row>
-                <div id="preview">
+                <div className="contain">
                   <img src={cocktailNew.image} alt={cocktailNew.name} />
                 </div>
               </Row>
@@ -140,7 +148,18 @@ export default function LastCallNew(props) {
                 <div id="ingredients">
                   <ul>
                     {list.map((ingredient, index) => (
-                      <li key={index}> {ingredient} </li>
+                      <li key={index}>
+                        <Button
+                          className="subtract"
+                          onClick={() =>
+                            setList(list.filter((ing) => ing !== ingredient))
+                          }
+                        >
+                          {" "}
+                          -{" "}
+                        </Button>{" "}
+                        {ingredient}{" "}
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -148,11 +167,25 @@ export default function LastCallNew(props) {
               <Row>
                 <h3>Current Directions</h3>
                 <div id="directions">
-                  <ul>
+                  <ol>
                     {listDir.map((direction, index) => (
-                      <li key={index}> {direction} </li>
+                      <li key={index}>
+                        {" "}
+                        <Button
+                          className="subtract"
+                          onClick={() =>
+                            setListDir(
+                              listDir.filter((dir) => dir !== direction)
+                            )
+                          }
+                        >
+                          {" "}
+                          -{" "}
+                        </Button>{" "}
+                        {direction}{" "}
+                      </li>
                     ))}
-                  </ul>
+                  </ol>
                 </div>
               </Row>
             </Col>
