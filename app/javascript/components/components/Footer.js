@@ -1,10 +1,10 @@
 import React from "react";
-import { Navbar, Button, Col, Row } from "react-bootstrap";
+import { Navbar, Button, Container } from "react-bootstrap";
 
 export default function Footer() {
   return (
     <>
-      <Navbar className="color-nav" fixed="bottom" collapseOnSelect expand="lg">
+      <Navbar className="color-nav" fixed="bottom" collapseOnSelect expand="md">
         <div>
           <p id="copyright" style={{ color: "white" }}>
             &copy; Homefried-Happy-Hour 2022
