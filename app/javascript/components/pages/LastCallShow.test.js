@@ -38,7 +38,6 @@ describe("When LastCallShow renders", () => {
       <LastCallShow logged_in={logged} cocktails={cocktails} />
     );
     const cardsArray = lastCallShowRender.find("Card");
-    console.log("Cards: ", cardsArray);
     expect(cardsArray.length).toEqual(1);
   });
   it("displays a delete button when logged in", () => {

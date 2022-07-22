@@ -30,7 +30,7 @@ export default function LastCallEdit(props) {
     fetch(`/cocktails/${id}`)
       .then((request) => request.json())
       .then((payload) => setCocktail(payload))
-      .catch((err) => console.log(err));
+      .catch((err) => console.errors(err));
   }
 
   function handleSubmit(e) {

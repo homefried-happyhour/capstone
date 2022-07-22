@@ -5,17 +5,14 @@ import Enzyme, { shallow } from "enzyme";
 // Imports Adapter utilizing the latest react version into our test file so we can run a testing render on any component we may need.
 import Adapter from "enzyme-adapter-react-16";
 // Imports in the component we are going to be testing.
-import LastCallIndex from "./LastCallIndex";
+import NotFound from "./NotFound";
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
-import { cocktails } from "../mockCocktails";
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("When LastCallIndex renders", () => {
-  it("displays 3 cards", () => {
-    const lastCallIndexRender = shallow(
-      <LastCallIndex cocktails={cocktails} />
-    );
-    const cardsArray = lastCallIndexRender.find("Card");
-    expect(cardsArray.length).toEqual(3);
+describe("When NotFound renders", () => {
+  it("displays a card", () => {
+    const notFoundRender = shallow(<NotFound />);
+    const headerRender = notFoundRender.find("h1");
+    expect(headerRender.length).toEqual(1);
   });
 });

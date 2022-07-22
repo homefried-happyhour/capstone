@@ -21,12 +21,10 @@ export default function App(props) {
       .then((payload) => setCocktails(payload))
       .catch((errors) => {
         setErrors(errors);
-        console.log(hasErrors);
+        console.errors(hasErrors);
       });
   }
-  console.log(cocktails);
   function createCocktail(newCocktail) {
-    console.log("fetch method post: ", JSON.stringify(newCocktail));
     fetch("/cocktails", {
       body: JSON.stringify(newCocktail),
       headers: { "Content-Type": "application/json" },
@@ -36,12 +34,11 @@ export default function App(props) {
       .then((payload) => setCocktails(readCocktails()))
       .catch((errors) => {
         setErrors(errors);
-        console.log(hasErrors);
+        console.error(hasErrors);
       });
   }
 
   function editCocktail(cocktail, id) {
-    console.log("fetch method put: ", JSON.stringify(cocktail));
     fetch(`/cocktails/${id}`, {
       body: JSON.stringify(cocktail),
       headers: { "Content-Type": "application/json" },
@@ -51,7 +48,7 @@ export default function App(props) {
       .then((payload) => setCocktails(readCocktails()))
       .catch((errors) => {
         setErrors(errors);
-        console.log(hasErrors);
+        console.error(hasErrors);
       });
   }
 

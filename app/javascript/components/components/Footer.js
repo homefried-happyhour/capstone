@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Button, Col, Row } from "react-bootstrap";
+import { Navbar, Button } from "react-bootstrap";
 
 export default function Footer() {
   return (

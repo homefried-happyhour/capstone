@@ -13,7 +13,6 @@ describe("When Footer renders", () => {
   it("displays a heading", () => {
     const footer = shallow(<Footer />);
     const footing = footer.find("Button");
-    console.log("FOOTER: ", footing.debug());
     expect(footing.length).toEqual(1);
   });
 });

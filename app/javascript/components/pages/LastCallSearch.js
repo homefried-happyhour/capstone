@@ -9,11 +9,9 @@ export default function LastCallSearch(props) {
   const ingRef = useRef(null);
   const { cocktails } = props;
 
-  console.log("ingredient: ", ingredient);
-
   function handleCocktailArray(e) {
     e.preventDefault();
-    if (ingredient !== "") {
+    if (ingredient) {
       cocktails.forEach((cocktailObj) => {
         let includeIng = cocktailObj.ingredients
           .join(", ")
@@ -35,7 +33,6 @@ export default function LastCallSearch(props) {
       ingRef.current.reset();
     }
   }
-  console.log("results: ", searchResult);
 
   return (
     <>

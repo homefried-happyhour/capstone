@@ -2,7 +2,7 @@ import React from "react";
 import { Carousel } from "react-bootstrap";
 
 export default function Home(props) {
-  let { cocktails } = props;
+  const { cocktails } = props;
   return (
     <>
       <div className="home-container">

@@ -5,12 +5,11 @@ import { NavLink, useParams, Navigate } from "react-router-dom";
 export default function LastCallShow(props) {
   let [remove, setRemove] = useState(false);
 
-  let { logged_in, deleteCocktail, readCocktails } = props;
-  let { id } = useParams();
+  const { logged_in, deleteCocktail, readCocktails } = props;
+  const { id } = useParams();
 
-  let { cocktails } = props;
+  const { cocktails } = props;
   let cocktail = cocktails.find((cocktailObj) => cocktailObj.id == id);
-  console.log(cocktail);
 
   const handleDelete = (id) => {
     deleteCocktail(id);
