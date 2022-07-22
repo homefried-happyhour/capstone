@@ -1,5 +1,5 @@
-import React from 'react'
-import { Card, Button, Row } from 'react-bootstrap'
+import React from "react";
+import { Card, Button, Row } from "react-bootstrap";
 
 export default function NotFound() {
   return (
@@ -8,5 +8,5 @@ export default function NotFound() {
         You look thirsty, click on the header and find yourself a drink.
       </h1>
     </>
-  )
+  );
 }
