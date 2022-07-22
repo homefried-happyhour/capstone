@@ -1,4 +1,4 @@
-export let cocktails = [
+export const cocktails = [
   {
     name: "Bloody Mary",
     image:

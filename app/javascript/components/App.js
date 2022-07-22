@@ -13,15 +13,13 @@ import About from "./pages/About";
 
 export default function App(props) {
   let [cocktails, setCocktails] = useState([]);
-  let [hasErrors, setErrors] = useState(false);
 
   function readCocktails() {
     fetch("/cocktails")
       .then((response) => response.json())
       .then((payload) => setCocktails(payload))
       .catch((errors) => {
-        setErrors(errors);
-        console.errors(hasErrors);
+        console.error(errors);
       });
   }
   function createCocktail(newCocktail) {
@@ -33,8 +31,7 @@ export default function App(props) {
       .then((response) => response.json())
       .then((payload) => setCocktails(readCocktails()))
       .catch((errors) => {
-        setErrors(errors);
-        console.error(hasErrors);
+        console.error(errors);
       });
   }
 
@@ -47,8 +44,7 @@ export default function App(props) {
       .then((response) => response.json())
       .then((payload) => setCocktails(readCocktails()))
       .catch((errors) => {
-        setErrors(errors);
-        console.error(hasErrors);
+        console.error(errors);
       });
   }
 

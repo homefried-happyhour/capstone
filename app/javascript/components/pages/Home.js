@@ -5,7 +5,7 @@ export default function Home(props) {
   const { cocktails } = props;
   return (
     <>
-      <div className="home-container">
+      <div className="component">
         <div className="bubbles-container">
           <svg
             className="bubbles"

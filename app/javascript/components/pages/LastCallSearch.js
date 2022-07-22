@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Form, Button, Card, Container, Row } from "react-bootstrap";
+import { Form, Button, Card, Container, Row, Stack } from "react-bootstrap";
 import Ingredient from "./Ingredient.js";
 
 export default function LastCallSearch(props) {
@@ -36,29 +36,36 @@ export default function LastCallSearch(props) {
 
   return (
     <>
-      <Form ref={ingRef}>
-        <Form.Group>
-          <Form.Label> Search </Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Search"
-            onKeyPress={(e) => {
-              e.key === "Enter" && e.preventDefault();
-            }}
-            onChange={(e) => setIngredient(e.target.value)}
-          />
-        </Form.Group>
-        <Button onClick={(e) => handleCocktailArray(e)}>Search</Button>
-        <Button onClick={() => setSearchResult([])}>Reset</Button>
-      </Form>
+    
+      <div className="search-bar">
+        <Form ref={ingRef}>
+          <Form.Group>
+            <Form.Label> Search </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Type in an ingredient or name"
+              onKeyPress={(e) => {
+                e.key === "Enter" && e.preventDefault();
+              }}
+              onChange={(e) => setIngredient(e.target.value)}
+            />
+          </Form.Group>
+          <Button onClick={(e) => handleCocktailArray(e)}>Search</Button>
+          <Button onClick={() => setSearchResult([])}>Reset</Button>
+        </Form>
+      </div>
+      
       <Container>
-        <Row xd={1} md={3}>
+        <Row md={3}>
           {searchResult !== [] &&
-            searchResult.map((resultObj, index) => {
-              return <Ingredient key={index} cocktail={resultObj} />;
-            })}
+            searchResult.map((resultObj, index) => (
+              <div>
+                <Ingredient key={index} cocktail={resultObj} />
+              </div>
+            ))}
         </Row>
       </Container>
+      
     </>
   );
 }

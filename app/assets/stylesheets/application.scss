@@ -14,7 +14,7 @@
  *= require_self
  */
 @import "bootstrap";
-@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Edu+VIC+WA+NT+Beginner&family=Poppins:wght@300;400;500;600&family=Rubik+Moonrocks&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -68,8 +68,8 @@
 }
 
 .btn-container {
-	margin-left: 4px;
-	margin-right: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 .btn-wrapper {
   margin: 10px;
@@ -163,6 +163,14 @@
   height: 80vh;
 }
 
+.search-bar {
+  padding-bottom: 10rem;
+  width: 50vw;
+  margin: auto;
+  top: 50%;
+  transform: translateY(50%);
+}
+
 //----OFFCANVAS---
 .offcanvas {
   background-color: #3c3b3be7;
@@ -177,9 +185,7 @@
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 5.3rem;
-  overflow-y: scroll;
+  background-size: 150%;
 }
 
 .carousel {
@@ -201,7 +207,7 @@
 .carousel .carousel-item img {
   object-fit: cover;
   object-position: center;
-  height: 81vh;
+  height: 83vh;
   overflow: hidden;
 }
 
@@ -225,7 +231,14 @@
 }
 
 //  -----Index------
-
+.index-component {
+  position: relative;
+  top: 60px;
+  padding-bottom: 21px;
+  display: block;
+  height: 86vh;
+  overflow-y: scroll;
+}
 #index-card {
   background: #3c3b3bc7;
   display: block;
@@ -535,8 +548,15 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-  margin-bottom: 2.5rem;
+  overflow-y: scroll;
+  height: 80vh;
+  width: 40rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#show-card::-webkit-scrollbar {
+  display: none;
 }
 
 #show-card .card-img {
